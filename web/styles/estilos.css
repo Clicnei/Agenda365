@@ -1,0 +1,30 @@
+/* 
+    Created on : 3 de dez de 2020, 10:46:17
+    Author     : entra21
+*/
+
+button{
+background-color: red;
+color: white;
+}
+
+.error{
+    color: red;
+    font-style: italic;
+}
+
+header{
+    background-color: silver;
+    margin: 2px;
+    padding: 2px;
+    text-align: center;
+    font-size: 35px;
+    color: blue;
+}
+
+footer{
+    background-color: silver;
+    padding: 10px;
+    text-align: center;
+    color: blue;
+}
