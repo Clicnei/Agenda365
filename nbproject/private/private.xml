@@ -2,25 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/login.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeDadosCliente.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/styles/estilos.css</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/consultacliente.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/scripts/cabecalho.js</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/scripts/rodape.js</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/utils/ConversorData.java</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastracliente.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeDadosCarro.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/index.html</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/informacao.html</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastroequipamentos.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/modelos/equipamentos.java</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/scripts/menu.js</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/logout.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/utils/Conexao.java</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/consultaequipamentos.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/modelos/Cliente.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
