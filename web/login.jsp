@@ -46,7 +46,7 @@
            
             if(Cliente.podeLogar(usuario,senha)){
             session.setAttribute("usuario", usuario);
-            response.sendRedirect("cadastrolocacao.jsp");  
+            response.sendRedirect("cadastrausuario.jsp");  
           }      
             }
         %>
