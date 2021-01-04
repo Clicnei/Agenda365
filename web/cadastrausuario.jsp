@@ -18,7 +18,7 @@
             input[type=button],[type=reset]{
                 display:block;
                 width: 60px;
-                margin-left: auto;
+                margin-left:  auto;
                 margin-right: auto;
                 margin-top: 10px
             }
