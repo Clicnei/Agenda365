@@ -67,7 +67,7 @@
                 <hr />
             </article>
 
-            <form action="recebeDadosCarro.jsp" method="POST">
+            <form action="recebeDadosEquipamento.jsp" method="POST">
                 <div
                     
                     <label>Informe id</label>
@@ -83,11 +83,16 @@
 
                     <br />
                     <label>Informe potenciaBtus</label>
-                    <input type="text" name="modelo" />
+                    <input type="text" name="potenciaBtus" />
 
                     <br />
                     <label>Informe litragem</label>
-                    <input type="text" name="km" />
+                    <input type="text" name="litragem" />
+                    
+                    <br />
+                    <label>Informe tensao</label>
+                    <input type="text" name="tensao" />
+                    
                     
                     <hr />
                     <input type="button" value="Salvar" onclick="enviaForm()" />
@@ -108,7 +113,7 @@
                                 exit();
                             }
 
-                            var marca = document.getElementsByName("modelo");
+                            var modelo = document.getElementsByName("modelo");
                             if (modelo[0].value === "") {
                                 modelo[0].focus();
                                 alert("Informe o modelo");
@@ -125,9 +130,9 @@
 
 
 
-                            var modelo = document.getElementsByName("potenciaBtus");
-                            if (modelo[0].value === "") {
-                                modelo[0].focus();
+                            var potenciaBtus = document.getElementsByName("potenciaBtus");
+                            if (potenciaBtus[0].value === "") {
+                                potenciaBtus[0].focus();
                                 alert("Informe a potenciaBtus");
                                 exit();
                             }
@@ -139,6 +144,12 @@
                                 alert("Informe a litragem");
                                 exit();
                             }
+
+                            var tensao = document.getElementsByName("tensao");
+                            if (tensao[0].value === "") {
+                                tensao[0].focus();
+                                alert("Informe a tensao");
+                                exit();
 
                             document.forms[0].submit();
                         }

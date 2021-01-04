@@ -17,10 +17,11 @@ public class Equipamento {
     private String marca;
     private String potenciaBtus;
     private String litragem;
+    private String tensao;
    
     public boolean salvar() {
-        String sql = "insert into equipamento (id,modelo,marca,potenciaBtus,litragem)";
-        sql += "values(?,?,?,?,?)";
+        String sql = "insert into equipamento (id,modelo,marca,potenciaBtus,litragem,tensao)";
+        sql += "values(?,?,?,?,?,?)";
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -28,7 +29,8 @@ public class Equipamento {
             stm.setString(2, this.modelo);
             stm.setString(3, this.marca);
             stm.setString(4, this.potenciaBtus);
-            stm.setString(5, this.litragem);           
+            stm.setString(5, this.litragem);
+             stm.setString(6, this.tensao);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
@@ -38,8 +40,8 @@ public class Equipamento {
     }
 
     public boolean alterar() {
-        String sql = "insert into equipamento (id,modelo,marca,potenciaBtus,litragem)";
-        sql += "values(?,?,?,?,?)";
+        String sql = "insert into equipamento (id,modelo,marca,potenciaBtus,litragem,tensao)";
+        sql += "values(?,?,?,?,?,?)";
         Connection con = Conexao.conectar();
 
         try {
@@ -48,7 +50,8 @@ public class Equipamento {
             stm.setString(2, this.modelo);
             stm.setString(3, this.marca);
             stm.setString(4, this.potenciaBtus);
-            stm.setString(5, this.litragem);          
+            stm.setString(5, this.litragem);
+            stm.setString(5, this.tensao);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
@@ -59,7 +62,7 @@ public class Equipamento {
 
     public Equipamento consultar() {
         Connection con = Conexao.conectar();
-        String sql = "select id,modelo,marca,potenciaBtus,litragem from equipamento ";
+        String sql = "select id,modelo,marca,potenciaBtus,litragem,tensao from equipamento ";
         Equipamento equipamento = null;
         List<Equipamento> lista = new ArrayList<>();
         try {
@@ -68,7 +71,8 @@ public class Equipamento {
             stm.setString(2, this.modelo);
             stm.setString(3, this.marca);
             stm.setString(4, this.potenciaBtus);
-            stm.setString(5, this.litragem);         
+            stm.setString(5, this.litragem); 
+            stm.setString(5, this.tensao); 
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
@@ -101,7 +105,8 @@ public class Equipamento {
         sb.append(", modelo=").append(modelo);
         sb.append(", marca=").append(marca);
         sb.append(", potenciaBtus=").append(potenciaBtus);
-        sb.append(", litragem=").append(litragem);      
+        sb.append(", litragem=").append(litragem);
+        sb.append(", litragem=").append(tensao);
         sb.append('}');
         return sb.toString();
     }
@@ -144,6 +149,14 @@ public class Equipamento {
 
     public void setLitragem(String litragem) {
         this.litragem = litragem;
-    }    
+    }
+
+    public String getTensao() {
+        return tensao;
+    }
+
+    public void setTensao(String tensao) {
+        this.tensao = tensao;
+    }
 
 }
