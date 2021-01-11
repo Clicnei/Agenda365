@@ -10,12 +10,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
+        <title>TELA DE LOGIN</title>
         <style>
             body{
                 background-image: url("imagens/agendaAberta.png");
                 background-position: center;  
                 background-repeat: no-repeat;
+                background-size: 300px 300px 
             }
             div{
                 display: block;
