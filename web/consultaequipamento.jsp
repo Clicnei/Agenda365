@@ -4,6 +4,8 @@
     Author     : entra21
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<a href="consultaequipamento.jsp"></a>
 <%@page import="java.util.List"%>
 <%@page import="modelos.Equipamento"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,17 +14,22 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>AGENDA 365</title>
+        
     </head>
     <body>
         <h1>Consulta equipamentos</h1>
         <hr />
         <script src="scripts/menu.js"></script>
         
+         
+        
         <%
-          Equipamento equipamento = new Equipamento();
-          List<Equipamento> equipamento = Equipamento.consultar();
+          List<Equipamento> equipamento = new ArrayList<>();   
+          Equipamento eq = new Equipamento();
+          //listaEquipamento = eq.consultarAll();
+          String modelo = request.getParameter("modelo");          
+          
         %>
-       
         <table>
             <thead>
               <th>Id</th>
