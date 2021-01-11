@@ -37,7 +37,7 @@
                 display: block;
                 margin-left: auto;
                 margin-right: auto;
-                width: 400px;
+                width: 420px;
                 border: blue solid 2px;
                 margin-bottom: 10px;
                 padding: 20px;
@@ -48,7 +48,7 @@
             input[type=text]{
                 position: relative;
                 background-color: silver;
-                margin-left: 130px;
+                margin-left: 165px;
                 width: 250px;
             }
         </style>
@@ -74,7 +74,7 @@
                     <input type="text" name="id" /> 
                     
                     <br />
-                    <label>Informe a modelo</label>
+                    <label>Informe o modelo</label>
                     <input type="text" name="modelo" /> 
                     
                     <br />
@@ -82,15 +82,15 @@
                     <input type="text" name="marca" />
 
                     <br />
-                    <label>Informe potenciaBtus</label>
+                    <label>Informe a potenciaBtus</label>
                     <input type="text" name="potenciaBtus" />
 
                     <br />
-                    <label>Informe litragem</label>
+                    <label>Informe a litragem</label>
                     <input type="text" name="litragem" />
                     
                     <br />
-                    <label>Informe tensao</label>
+                    <label>Informe a tensao</label>
                     <input type="text" name="tensao" />
                     
                     

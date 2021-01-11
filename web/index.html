@@ -7,10 +7,13 @@ and open the template in the editor.
 <html>
     <head>
 
-        <title>Agenda 365</title>
+    
+
+        <title>Agenda365</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles/estilo.css">
+      
         <script src='https://kit.fontawesome.com/a076d05399.js'></script>
    
 
@@ -26,16 +29,23 @@ and open the template in the editor.
         </style>
         
 
-    </head>
+    
      <div>
-        <!--<a href="cadastrausuario.jsp"><input type="button" value="Cadastrar" /></a>-->
-        <a href="inicio.jsp"><input type="button" value="Inicio" /></a>
-        <a href="agenda.jsp"><input type="button" value="Agenda" /></a>
-        <a href="cadastro.jsp"><input type="button" value="Cadastro" /></a>
-        <a href="login.jsp"><input type="button" value="Cadastrar" /></a>
-        <a href="login.jsp"><input type="button" value="Cadastrar" /></a>
         
+        <a href="inicio.jsp"><input type="button" value="Inicio" ></a><br />
+        <a href="agenda.jsp"><input type="button" value="Agenda" ></a><br />
+        <a href="cadastro.jsp"><input type="button" value="Cadastro" ></a><br />
+        <a href="consulta.jsp"><input type="button" value="Consulta" ></a><br />
+        <a href="notificacao.jsp"><input type="button" value="Notificações" ></a><br />
+          
         
+ <!--       
+document.write("<a href='inicio.jsp'><button>Inicio</button></a> &nbsp; &nbsp; <br />")
+document.write("<a href='agenda.jsp'><button>Agenda</button></a> &nbsp; &nbsp; <br />")
+document.write("<a href='cadastro.jsp'><button>Cadastro</button></a> &nbsp; &nbsp; <br />")
+document.write("<a href='consulta.jsp'><button>Consulta</button></a> &nbsp; &nbsp; <br />")
+document.write("<a href='notificacoes.jsp'><button>Notificacoes</button></a> &nbsp; &nbsp; <br />")
+document.write("<a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; <br />")
         
         <a href='inicio.jsp'><button>Inicio</button></a> &nbsp; &nbsp; ")("<hr />") ;
 document.write("<a href='agenda.jsp'><button>Agenda</button></a> &nbsp; &nbsp; ")("<hr />");
@@ -44,8 +54,7 @@ document.write("<a href='consulta.jsp'><button>Consulta</button></a> &nbsp; &nbs
 document.write("<a href='notificacoes.jsp'><button>Notificacoes</button></a> &nbsp; &nbsp; ")("<hr />");
 document.write("<a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; ")("<hr />");
         
-        
-        
+   -->     
         
         
         
@@ -54,7 +63,7 @@ document.write("<a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; ")(
     <body>
         
         <header>
-            <!--<script src="scripts/cabecalho.js"></script>-->
+            <script src="scripts/cabecalho.js"></script>
         </header>
 
         <section>
@@ -67,8 +76,8 @@ document.write("<a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; ")(
         </section>
 
         <footer>
-            <script src="scripts/rodape.js"></script>
+           <a href="logout.jsp"><input type="button" value="SAIR" ></a><br />
         </footer>
 
     </body>
-</html>
+

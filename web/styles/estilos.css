@@ -14,17 +14,17 @@ color: white;
 }
 
 header{
-    background-color: silver;
+    background-color: red;
     margin: 2px;
     padding: 2px;
     text-align: center;
     font-size: 35px;
-    color: blue;
+    color: red;
 }
 
 footer{
     background-color: silver;
     padding: 10px;
     text-align: center;
-    color: blue;
+    color: red;
 }
