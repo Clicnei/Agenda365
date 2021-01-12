@@ -1,7 +1,7 @@
 <%-- 
     Document   : consulta
-    Created on : 4 de jan de 2021, 16:10:06
-    Author     : A
+    Created on : 11/01/2021, 11:32:37
+    Author     : volnei
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+
+        <a href='consultacliente.jsp'><button>Consulta Clientes</button></a> &nbsp; &nbsp; 
+        <a href='consultaequipamento.jsp'><button>Consulta Equipamentos</button></a> &nbsp; &nbsp;
+
     </body>
 </html>
