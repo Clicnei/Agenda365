@@ -44,11 +44,11 @@
                   && !(senha.isEmpty()) ){
             //crie a seção 
            
-            if(Cliente.podeLogar(usuario,senha)){
+            //if(Cliente.podeLogar(usuario,senha)){
             session.setAttribute("usuario", usuario);
             response.sendRedirect("cadastrausuario.jsp");  
           }      
-            }
+            
         %>
     </body>
 </html>

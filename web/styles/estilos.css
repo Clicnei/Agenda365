@@ -3,8 +3,12 @@
     Author     : entra21
 */
 
+body{
+}
+
+
 button{
-background-color: red;
+background-color: blue;
 color: white;
 }
 
