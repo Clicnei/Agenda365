@@ -25,6 +25,7 @@
                 margin-right: auto;
                 margin-left: auto;
                 margin-top: 10px;
+
             }
 
             label{
@@ -32,7 +33,6 @@
                 margin-left: 10px;
                 position: absolute;
             }
-            
             div{
                 display: block;
                 margin-left: auto;
@@ -42,35 +42,35 @@
                 margin-bottom: 10px;
                 padding: 20px;
             }
-            
             input[type=text]:focus{
                 background-color: white;      
             }
-            
             input[type=text]{
                 position: relative;
                 background-color: silver;
                 margin-left: 165px;
                 width: 250px;
             }
-            
         </style>
     </head>
     <body>
 
         <header>
-            <script src="scripts/cabecalho.js"></script>  
-            <h1>Cadastro de Equipamentos </h1>
+            < src="s/cabecalho.js"></>  
         </header>
         <section>
             <nav>
-                <script src="scripts/menu.js"></script>
+                < src="s/menu.js"></>
             </nav>
-            
+            <article>
+                <h1>Cadastro equipamentos</h1>
+                <hr />
+            </article>
 
-            <form action="recebeDadosEquipamento.jsp" method="post">
+            <form action="recebeDadosEquipamento.jsp" method="POST">
                 <div
                     
+                   
                     
                     <br />
                     <label>Informe o modelo</label>
@@ -94,59 +94,62 @@
                     
                     
                     <hr />
-                    
-                   
-                    
-                    <input type="submit" value="Salvar" onclick="enviaForm()" />
+                    <input type="button" value="Salvar" onclick="enviaForm()" />
                     <input type="reset" value="Cancelar" onclick="enviaForm()" />
                 </div> 
             </form>
         </article>
     </section>
     <footer>
-        <script src="scripts/rodape.js"></script>
+        < src="s/rodape.js"></>
     </footer>
-    <script>
+    <>
+        
+        //Função de cadastro de equipamento
                         function enviaForm() {
-                            var id = document.getElementsByName("id");
+                          /*  var id = document.getElementsByName("id");//envia para o atributo na posição 0 o valor, cadastrado
                             if (id[0].value === "") {
                                 id[0].focus();
                                 alert("Informe id");
                                 exit();
                             }
+                        */
                             var modelo = document.getElementsByName("modelo");
                             if (modelo[0].value === "") {
                                 modelo[0].focus();
                                 alert("Informe o modelo");
                                 exit();
                             }
+
                             var marca = document.getElementsByName("marca");
                             if (marca[0].value === "") {
                                 marca[0].focus();
                                 alert("Informe a marca");
                                 exit();
-
                             }
+
                             var potenciaBtus = document.getElementsByName("potenciaBtus");
                             if (potenciaBtus[0].value === "") {
                                 potenciaBtus[0].focus();
                                 alert("Informe a potenciaBtus");
                                 exit();
                             }
+
                             var litragem = document.getElementsByName("litragem");
                             if (litragem[0].value === "") {
                                 litragem[0].focus();
                                 alert("Informe a litragem");
                                 exit();
                             }
+
                             var tensao = document.getElementsByName("tensao");
                             if (tensao[0].value === "") {
                                 tensao[0].focus();
                                 alert("Informe a tensao");
                                 exit();
-
+                            }
                             document.forms[0].submit();
                         }
-    </script>
+    </>
 </body>   
 </html>

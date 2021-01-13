@@ -4,8 +4,13 @@
 */
 
 body{
-}
 
+
+
+
+
+
+layout pag inicio
 
 button{
 background-color: blue;
@@ -31,4 +36,5 @@ footer{
     padding: 10px;
     text-align: center;
     color: red;
+}
 }

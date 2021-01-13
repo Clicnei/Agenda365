@@ -12,10 +12,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Recebe Dados Cliente</title>
     </head>
-    <body>
+    
         <script src="scripts/menu.js"></script>
-        <h1>Recebe Dados Cliente</h1>
-               
+    <script src='https://viacep.com.br/ws/'+ cep + '/json></script>;
+        <br/>        
         
         <%
           //recebe os valores da tela HTML  
@@ -64,10 +64,5 @@
           
         %>
         
-        
-             }
-             }   
-        </script>
-        
-    </body>
+    
 </html>
