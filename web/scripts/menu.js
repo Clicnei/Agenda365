@@ -9,10 +9,10 @@ document.write("<a href='consultoequipamento.jsp'><button>Consulta Equipamentos<
 */
 
 
-document.write("<a href='inicio.jsp'><button>Inicio</button></a> &nbsp; &nbsp; ")("<hr />") ;
-document.write("<a href='agenda.jsp'><button>Agenda</button></a> &nbsp; &nbsp; ")("<hr />");
-document.write("<a href='cadastro.jsp'><button>Cadastro</button></a> &nbsp; &nbsp; ")("<hr />");
-document.write("<a href='consulta.jsp'><button>Consulta</button></a> &nbsp; &nbsp; ")("<hr />");
-document.write("<a href='notificacoes.jsp'><button>Notificacoes</button></a> &nbsp; &nbsp; ")("<hr />");
-document.write("<a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; ")("<hr />");
+document.write("<a href='inicio.jsp'><button>Inicio</button></a> &nbsp; &nbsp; ") ;
+document.write("<a href='agenda.jsp'><button>Agenda</button></a> &nbsp; &nbsp; ");
+document.write("<a href='cadastro.jsp'><button>Cadastro</button></a> &nbsp; &nbsp;");
+document.write("<a href='consulta.jsp'><button>Consulta</button></a> &nbsp; &nbsp; ");
+document.write("<a href='notificacoes.jsp'><button>Notificacoes</button></a> &nbsp; &nbsp;");
+document.write("<a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; ");
 document.write("<hr />");

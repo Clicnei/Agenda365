@@ -33,7 +33,8 @@
                 <input typ="text" name="usuario" /> <br/>
                 <label>Senha</label><br/>
                 <input type="password" name="senha" /> <br/> <br/>
-                <input type="submit" value="Logar" />                 
+                <input type="submit" value="Logar" />  
+                <a href="cadastracliente.jsp"><input type="button" value="cadastrar"/></a>
             </form>  
         </div>   
         <%

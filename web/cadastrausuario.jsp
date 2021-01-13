@@ -71,7 +71,7 @@
 
             <hr />
             <input type="button" value="Salvar" onclick="enviaForm()" />
-            <input type="reset" value="Cancelar" onclick="enviaForm()/>
+            <input type="reset" value="Cancelar" onclick="enviaForm()"/>
            </form>
        </body>                
     </html>
