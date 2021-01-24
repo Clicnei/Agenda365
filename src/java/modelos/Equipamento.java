@@ -37,11 +37,11 @@ public class Equipamento {
 
     public boolean alterar() {
         Connection con = Conexao.conectar();
-        String sql = "insert into equipamento (id,modelo,marca,potenciaBtus,litragem,tensao)";
+        String sql = "insert into equipamento (modelo,marca,potenciaBtus,litragem,tensao)";
         sql += "values(?,?,?,?,?,?)";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.id);
+            
             stm.setString(2, this.modelo);
             stm.setString(3, this.marca);
             stm.setString(4, this.potenciaBtus);

@@ -16,36 +16,34 @@
     <body>
         <script src="scripts/menu.js"></script>
         <h1>Cadastro de Usuario</h1>
-               
-        
+
+    
         <%
-          //recebe os valores da tela HTML  
-          String nome = request.getParameter("nome");
-          String cpf = request.getParameter("cpf");
-          String usuario = request.getParameter("usuario");
-          String senha = request.getParameter("senha");
-          
-          //instancia o carro
-          Usuario usuario = new Usuario();
-          usuario.setNome(nome);
-           usuario.setCpf(cpf);
-           usuario.setUsuario(usuario);
-           usuario.setSenha(senha);
-         
-          if( usuario.salvar()){
-              out.write("Usuario salvo com sucesso");
-          }
-          else
-          {
-              out.write("Problemas ao salvar Usuario");
-          }
-          
+            //recebe os valores da tela HTML  
+            String nome = request.getParameter("nome");
+            String cpf = request.getParameter("cpf");
+            String usuario = request.getParameter("usuario");
+            String senha = request.getParameter("senha");
+
+            //instancia o carro
+            Usuario usuario = new Usuario();
+            usuario.setNome(nome);
+            usuario.setCpf(cpf);
+            usuario.setUsuario(usuario);
+            usuario.setSenha(senha);
+
+            if (usuario.salvar()) {
+                out.write("Usuario salvo com sucesso");
+            } else {
+                out.write("Problemas ao salvar Usuario");
+            }
+
         %>
-        
-        
-             }
-             }   
-        </script>
-        
-    </body>
+
+
+        }
+        }   
+    
+
+</body>
 </html>

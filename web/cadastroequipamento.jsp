@@ -14,6 +14,32 @@
         <link rel="stylesheet"href="styles/estilos.css">
 
         <style>
+
+            header {
+                background-color: #F1F1F1;
+                text-align: center;
+                padding: 10px;
+            }
+
+
+            label{
+                display: block;
+                margin-left: 10px;
+                position: absolute;
+            }
+
+            div{
+
+                position: absolute;
+                width: 1440px;
+                height: 904px;
+                left: 0px;
+                top: 62px;
+
+                background: #C4C4C4;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+            }
             input[type=checkbox]{
                 display: block;
                 position: absolute;
@@ -26,98 +52,100 @@
                 margin-left: auto;
                 margin-top: 10px;
             }
-
-            label{
-                display: block;
-                margin-left: 10px;
-                position: absolute;
-            }
-            
-            div{
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 400px;
-                border: blue solid 2px;
-                margin-bottom: 10px;
-                padding: 20px;
-            }
-            
             input[type=text]:focus{
                 background-color: white;      
             }
-            
+
             input[type=text]{
                 position: relative;
                 background-color: silver;
+               
                 margin-left: 130px;
                 width: 250px;
             }
-            
+            input[type=text][name="modelo"]{
+                position: absolute;
+                 background-image: url('searchicon.png');
+                width: 480px;
+                height: 58px;
+                left: 240px;
+                top: 316px;
+
+                background: #FFFFFF;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+            }
+            input[type=text][name="litragem"]{
+                position: absolute;
+                width: 374px;
+                height: 66px;
+                left: 957px;
+                top: 412px;
+
+                background: #FFFFFF;
+                border: 1px solid #000000;
+                box-sizing: border-box;
+            }
+
+
         </style>
     </head>
     <body>
 
         <header>
             <script src="scripts/cabecalho.js"></script>  
-            <h1>Cadastro de Equipamentos </h1>
+            <h3>Cadastro de Equipamentos </h3>  
         </header>
+
+        <nav>
+            <script src="scripts/menu.js"></script>
+        </nav>
+
         <section>
-            <nav>
-                <script src="scripts/menu.js"></script>
-            </nav>
-            
-
             <form action="recebeDadosEquipamento.jsp" method="post">
-                <div
-                    
-                    
+          
                     <br />
-                    <label>Informe a modelo</label>
-                    <input type="text" name="modelo" /> 
-                    
-                    <br />
-                    <label>Informe a marca</label>
-                    <input type="text" name="marca" />
+                <label>Informe o modelo</label>
+                <input type="text" name="modelo" /> 
 
-                    <br />
-                    <label>Informe potenciaBtus</label>
-                    <input type="text" name="potenciaBtus" />
+                <br />
+                <label>Informe a marca</label>
+                <input type="text" name="marca" />
 
-                    <br />
-                    <label>Informe litragem</label>
-                    <input type="text" name="litragem" />
-                    
-                    <br />
-                    <label>Informe tensao</label>
-                    <input type="text" name="tensao" />
-                    
-                    
-                    <hr />
-                    
-                   
-                    
-                    <input type="submit" value="Salvar" onclick="enviaForm()" />
-                    <input type="reset" value="Cancelar" onclick="enviaForm()" />
-                </div> 
+                <br />
+                <label>Informe a potenciaBtus</label>
+                <input type="text" name="potenciaBtus" />
+
+                <br />
+                <label>Informe litragem</label>
+                <input type="text" name="litragem" />
+
+                <br />
+                <label>Informe tensao</label>
+                <input type="text" name="tensao" />
+
+                <br />
+                <label>Informe o aparelho</label>
+                <input type="text" name="aparelho">                  
+
+                <hr />
+                <input type="button" value="Salvar" onclick="enviaForm()" />
+                <input type="reset" value="Cancelar" />
+               
             </form>
-        </article>
-    </section>
-    <footer>
-        <script src="scripts/rodape.js"></script>
-    </footer>
-    <script>
-                        function enviaForm() {
-                            var id = document.getElementsByName("id");
-                            if (id[0].value === "") {
-                                id[0].focus();
-                                alert("Informe id");
-                                exit();
-                            }
-                            var modelo = document.getElementsByName("modelo");
-                            if (modelo[0].value === "") {
-                                modelo[0].focus();
-                                alert("Informe o modelo");
+
+        </section>
+        <footer>
+            <script src="scripts/rodape.js"></script>
+        </footer>
+        <script>
+                        function enviaForm() {              // validação de dados 
+
+                            var modelo = document.getElementsByName("modelo"); // coletando dados atravez do name
+                            if (modelo[0].value === "") {     //se modelo for igual  a vizio   (alert)
+                                modelo[0].focus();            // se modelo  for igual a zero   (alert)
+                                // alert("Informe o modelo");    //alert pedindo para preencher  o campo modelo
+
                                 exit();
                             }
                             var marca = document.getElementsByName("marca");
@@ -145,8 +173,16 @@
                                 alert("Informe a tensao");
                                 exit();
 
-                            document.forms[0].submit();
+                            }
+                            var aparelho = document.getElementsByName("aparelho");
+                            if (aparelho[0].value === "") {
+                                aparelho[0].focus();
+                                alert("Informe o aparelho");
+                                exit();
+                            }
+                            document.forms[0].submit();      //envia dados para endereço registrado no action
                         }
-    </script>
-</body>   
+
+        </script>
+    </body>   
 </html>

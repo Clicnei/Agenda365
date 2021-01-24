@@ -1,51 +1,56 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-
-        <title>Agenda 365</title>
+        <title>ABERTURA</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/estilo.css">
-        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-        
+
         <style>
             img{
-                position: absolute;
-                right: 100px;
-                width: 800px;
-                height: 600px;
                 display: block;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                width: 300px;
+                height: 300px;
             }
-        </style>   
 
+            .imgcentral{
+                transition: all 0.5s;
+                cursor: pointer;
+            }
+
+            .imgcentral:hover{
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5);
+            }
+
+            hr{
+                margin: 30px;
+                height: 10px;
+                background-color: cornflowerblue; 
+            } 
+
+            .a{
+                border-radius: 5px;  
+            } 
+            footer{
+                background-color: silver;
+                padding: 10px;
+                text-align: center;
+                color: blue;
+            }
+        </style>
     </head>
-    <div>
-        <hr/>
-        <a href='inicio.jsp'><button>Inicio</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='agenda.jsp'><button>Agenda</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='cadastro.jsp'><button>Cadastro</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='consulta.jsp'><button>Consulta</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='notificacoes.jsp'><button>Notificacoes</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; <br /> <br />
-
-    </div>
     <body>
-        <header>
-            <script src="scripts/cabecalho.js"></script>
-        </header>
+        <hr/>
+        <img class="imgcentral" src="imagens/Doutor.png" alt="imagem"/>
 
-        <section>
-            <nav>
-                <script src="scripts/menu.js"></script>
-            </nav>
-            <article>
-                <img class="imgcentral" src="imagens/agenda.gif" alt="imagem" /> 
-            </article>
-        </section>
+        <div>
+            <a href='login.jsp'><button>Entrar</button></a>   
+        </div>
+        <hr/>
+        <footer>
+            <script src="scripts/rodape.js"></script>
+        </footer>
     </body>
 </html>
