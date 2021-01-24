@@ -70,6 +70,37 @@
             <input type="text" name="fone" />
 
             <hr />
+           <!--  public static boolean podeLogar(String nUser, String pSenha){
+      Connection con = Conexao.getInstance();
+      String sql = "select * from cliente where usuario = ? and senha = ?";
+      try {
+           PreparedStatement stm = con.prepareStatement(sql);
+           stm.setString(1, nUser);
+           stm.setString(2, pSenha);
+           ResultSet rs = stm.executeQuery();
+           return rs.next();            
+           
+       } catch (SQLException ex) {
+           System.out.println("Erro: " + ex.getMessage());
+       }
+      return true;
+   }  
+-->
+    
+    public boolean userExiste(String nUser){
+      Connection con = Conexao.getInstance();
+      String sql = "select * from cliente where usuario = ?";
+      try {
+           PreparedStatement stm = con.prepareStatement(sql);
+           stm.setString(1, nUser);
+           ResultSet rs = stm.executeQuery();
+           return rs.next();            
+           
+       } catch (SQLException ex) {
+           System.out.println("Erro: " + ex.getMessage());
+       }
+      return true;
+   }  
             <input type="button" value="Salvar" onclick="enviaForm()" />
             <input type="reset" value="Cancelar" onclick="enviaForm()"/>
            </form>

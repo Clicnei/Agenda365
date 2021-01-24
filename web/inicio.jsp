@@ -4,52 +4,75 @@
     Author     : A
 --%>
 
-<%@page import="modelos.Cliente"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+
+
+
+
+<html> 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+
+        <title>AGENDA 3 1/2 5</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilos.css">
+       
+        
+        
         <style>
-            body{
-                background-image: url("imagens/agendaAberta.png");
-                background-position: center;  
-                background-repeat: no-repeat;
-            }
-            div{
+            img{
                 display: block;
-                width: 300px;
+                position: relative;
                 margin-left: auto;
                 margin-right: auto;
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-            <h1>Tela de Login</h1>
-            <form action="login.jsp" method="POST">
-                <label>Usuário</label><br/>
-                <input typ="text" name="usuario" /> <br/>
-                <label>Senha</label><br/>
-                <input type="password" name="senha" /> <br/> <br/>
-                <input type="submit" value="Logar" />                 
-            </form>  
-        </div>   
-        <%
-          String usuario = request.getParameter("usuario");
-          String senha = request.getParameter("senha");
-          
-          if((usuario != null) && (senha != null) && !(usuario.isEmpty())
-                  && !(senha.isEmpty()) ){
-            //crie a seção 
-           
-            //if(Cliente.podeLogar(usuario,senha)){
-            session.setAttribute("usuario", usuario);
-            response.sendRedirect("cadastrausuario.jsp");  
-          }      
+                width: 300px;
+                height: 300px;
+               }
+               hr{
+                   margin: 30px;
+                   height: 10px;
+                   background-color: cornflowerblue;
+               }
             
-        %>
+        </style>   
+
+    </head>
+    <div>
+        <hr/>
+        
+       <a href='inicio.jsp'><button>Inicio</button></a> &nbsp; &nbsp; <br /> <br />
+        <a href='agenda.jsp'><button>Agenda</button></a> &nbsp; &nbsp; <br /> <br />
+        <a href='cadastro.jsp'><button>Cadastro</button></a> &nbsp; &nbsp; <br /> <br />
+        <a href='cadastraordemservico.jsp'><button>Ordem de Servi�o</button></a> &nbsp; &nbsp; <br /> <br />
+        <a href='consulta.jsp'><button>Consulta</button></a> &nbsp; &nbsp; <br /> <br />
+        <a href='notificacoes.jsp'><button>Notificacoes</button></a> &nbsp; &nbsp; <br /> <br />
+        <a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; <br /> <br />
+
+
+    </div>
+    <body>
+        <header>
+            <script src="scripts/cabecalho.js"></script>
+        </header>
+        <br>
+        <section>
+            <nav>
+                
+                <style>
+                    a:hover{
+                        
+                    
+                    
+                    } 
+                </style>
+            </nav>
+            <article>
+                <img class="imgcentral"src="imagens/Doutor.png" alt="imagem"/>
+            </article>
+        </section>
     </body>
 </html>
+
+
+
+
 

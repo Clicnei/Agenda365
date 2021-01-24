@@ -6,55 +6,84 @@ and open the template in the editor.
 -->
 <html>
     <head>
-
-        <title>Agenda 365</title>
+        <title>INDEX</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <link rel="stylesheet" href="estilos.css">
-        
-        
-        
+        <link href="styles/estilos.css" type="text/css"/>
         <style>
             img{
-                position: absolute;
-                right: 100px;
-                width: 800px;
-                height: 600px;
-                display: block;
+                display: inline;
+                width: 500px;
+                height: 500px;
+                margin-left: 280px;
             }
-        </style>   
+            
+            .img1{
+                display: flex;
+                width: 200px;
+                height: 100px;
+                position: absolute;
+                margin-left: 820px;
+                top: 200px;
+            }
+            
+            div{
+                display: flex;
+                top: 300px;
+                left: 840px;
+                width: 400px;
+                position: absolute;
+                
+            }    
+            .imgcentral{
+                transition: all 0.5s;
+                cursor: pointer;
+            }
 
+            .imgcentral:hover{
+                -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+            }
+            
+            hr{
+                margin: 30px;
+                height: 10px;
+                background-color: cornflowerblue; 
+            } 
+            
+            footer{
+                background-color: silver;
+                padding: 10px;
+                text-align: center;
+                color: blue;
+            }
+            
+            input[type=submit] {
+                background-color: cornflowerblue;
+                border: none;
+                width: 180px;
+                color: white;
+              }
+            
+        </style>
     </head>
-    <div>
-        <hr/>
-        <a href='inicio.jsp'><button>Inicio</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='agenda.jsp'><button>Agenda</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='cadastro.jsp'><button>Cadastro</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='consulta.jsp'><button>Consulta</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='notificacoes.jsp'><button>Notificacoes</button></a> &nbsp; &nbsp; <br /> <br />
-        <a href='logout.jsp'><button>SAIR</button></a> &nbsp; &nbsp; <br /> <br />
-
-    </div>
     <body>
-        <!--<header>
-            <script src="scripts/cabecalho.js"></script>
-        </header>-->
-        <br>
-        <section>
-            <nav>
-                <script src="scripts/menu.js"></script>
-                <style>
-                    a:hover{
-                        
-                    
-                    
-                    } 
-                </style>
-            </nav>
-            <article>
-                <img class="imgcentral" src="imagens/images3.jpg" alt="imagem" /> 
-            </article>
-        </section>
+        <hr/>
+        <img class="imgcentral" src="imagens/Doutor.png" alt="imagem"/>
+        <img class="img1" src="imagens/Logo1.png" alt="imagem"/>
+        <div>
+                <form action="login.jsp" method="POST">
+                <label>Usuário</label><br/>
+                <input type="text" name="usuario" /> <br/>
+                <label>Senha</label><br/>
+                <input type="password" name="senha" /> <br/> <br/>
+                <input type="submit" value="ENTRAR" />
+        </div>
+        <footer>
+            <script src="scripts/rodape.js"></script>
+        </footer>
     </body>
 </html>
+
+
+

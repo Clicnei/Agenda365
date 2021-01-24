@@ -56,11 +56,11 @@
     <body>
 
         <header>
-            < src="s/cabecalho.js"></>  
+            <script src="scripts//cabeça~jp.js"></script> 
         </header>
         <section>
             <nav>
-                < src="s/menu.js"></>
+               <script src="scripts/menu.js"></script>
             </nav>
             <article>
                 <h1>Cadastro equipamentos</h1>
@@ -101,9 +101,9 @@
         </article>
     </section>
     <footer>
-        < src="s/rodape.js"></>
+        <script src="scripts/rodape.js"></script>
     </footer>
-    <>
+    <script>
         
         //Função de cadastro de equipamento
                         function enviaForm() {
@@ -150,6 +150,7 @@
                             }
                             document.forms[0].submit();
                         }
-    </>
+    <script/>
 </body>   
 </html>
+

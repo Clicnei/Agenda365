@@ -46,7 +46,7 @@ public class Equipamento {
             stm.setString(3, this.marca);
             stm.setString(4, this.potenciaBtus);
             stm.setString(5, this.litragem);
-            stm.setString(5, this.tensao);
+            stm.setString(6, this.tensao);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());

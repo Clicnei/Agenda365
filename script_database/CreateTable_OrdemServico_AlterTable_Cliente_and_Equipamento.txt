@@ -1,0 +1,19 @@
+alter table cliente drop column cpf;
+alter table cliente add column cpf varchar(14) unique null;
+alter table cliente drop column cnpj;
+alter table cliente add column cnpj varchar(18) unique null;
+alter table cliente add column isPessoaFisica boolean not null;
+alter table cliente add primary key (id);
+alter table equipamento add primary key (id);
+create table ordemServico(
+id serial,
+clienteId INT,
+equipamentoId INT,
+servico VARCHAR(100),
+criticidade VARCHAR(50),
+datainicio TIMESTAMP,
+datafim TIMESTAMP,
+primary key (id),
+constraint fk_cliente FOREIGN KEY(clienteId) references cliente(id),
+constraint fk_equipamento FOREIGN KEY(equipamentoId) references equipamento(id)
+)

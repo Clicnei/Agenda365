@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import utils.Conexao;
 
+
 /**
  *
  * @author A
@@ -101,7 +102,7 @@ public class Usuario {
 
     public Usuario consultar(String pCpf) {
         Connection con = Conexao.conectar();
-        String sql = "select cpf, nome, usuario, senha"
+        String sql = "select * cpf, nome, usuario, senha"
                 + " from usuario where cpf = ?";
         Usuario usuario = null;
         try {
@@ -124,7 +125,7 @@ public class Usuario {
 
     public List<Usuario> consultar() {
         Connection con = Conexao.conectar();
-        String sql = "select nome, cpf, usuario, senha from usuario";
+        String sql = "select * nome, cpf, usuario, senha from usuario";
         Usuario usuario = null;
         List<Usuario> lista = new ArrayList<>();
         try {
