@@ -1,7 +1,7 @@
 <%-- 
     Document   : cadastroequipamentos
-    Created on : 30 de out de 2020, 08:34:09
-    Author     : entra21
+    Created on : 27 de JAN de 2021, 08:34:09
+    Author     : Volnei
 --%>
 
 
@@ -13,144 +13,209 @@
         <title>Agenda365- cadastro equipamentos</title>
         <link rel="stylesheet"href="styles/estilos.css">
 
-        <style>
-            input[type=checkbox]{
+
+        <style> 
+
+            a{
+                background-color: #4682B4;
+                color: white;
                 display: block;
-                position: absolute;
-                margin-left: 130px;
+                text-decoration: none;
+                padding: 10px;
+                border-radius: 10px;
+                font-weight: bolder;
+                margin-top: 50px;
+                width: 150px;
+                
+                text-align: center;
+                margin-left: 20px;
+            }   
+
+            a:hover{
+                background-color: #5F9EA0;
             }
-            input[type=button],[type=reset]{
-                display: block;
-                width: 70px;
-                margin-right: auto;
-                margin-left: auto;
-                margin-top: 10px;
+
+            a.active {
+                background-color: #4169E1;
+                cursor:no-drop;
+            }
+
+            .sair{
+                display: inline;
+                margin-left: 550px;
+            }
+
+            .menu{
+                clear: none;
+                float: left;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            input[type=text], select, textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                resize: vertical;
+                left: 50px;
+            }
+
+            input[type=button] {
+                background-color: #4682B4;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                font-weight: bolder;
+                cursor: pointer;
+                float: start;
+                text-align: center;
+                width: 150px;
+                margin-top: 200px;
+            }
+
+            input[type=button]:hover {
+                background-color: #5F9EA0;
 
             }
 
-            label{
+            input[type=reset] {
+                background-color: #4682B4;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                font-weight: bolder;
+                cursor: pointer;
+                float: start;
+                text-align: center;
+                width: 150px;
+
+            }
+
+            input[type=reset]:hover {
+                background-color: #5F9EA0;
+            }*
+
+            .container {
+                border-radius: 5px;
+                padding: 10px;
+                margin-left: 400px;
+                margin-top: 0;
+            }
+
+            .col-25 {
+                float: left;
+                width: 15%;
+                margin-top: 6px;
+            }
+
+            .col-75 {
+                float: left;
+                width: 60%;
+                margin-top: 6px;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
                 display: block;
-                margin-left: 10px;
-                position: absolute;
+                clear: both;
             }
-            div{
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width: 420px;
-                border: blue solid 2px;
-                margin-bottom: 10px;
-                padding: 20px;
-            }
-            input[type=text]:focus{
-                background-color: white;      
-            }
-            input[type=text]{
-                position: relative;
-                background-color: silver;
-                margin-left: 165px;
-                width: 250px;
+
+            /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+                .col-25, .col-75, input[type=submit] {
+                    width: 100%;
+                    margin-top: 0;
+                }
             }
         </style>
+
     </head>
     <body>
-
         <header>
-            <script src="scripts//cabeça~jp.js"></script> 
+
+            <h1>Cadastro de Equipamentos </h1> 
         </header>
-        <section>
-            <nav>
-               <script src="scripts/menu.js"></script>
-            </nav>
-            <article>
-                <h1>Cadastro equipamentos</h1>
-                <hr />
-            </article>
 
+        <div class="menu"> 
+            <a href="cadastracliente.jsp" >Cliente</a>
+            <a href="cadastroequipamento.jsp" class="active">Equipamento</a>
+            <a href="cadastraordemservico.jsp">Notificações</a>
+        </div>
+        <div class='container'>
             <form action="recebeDadosEquipamento.jsp" method="POST">
-                <div
-                    
-                   
-                    
+            <div class="row">
+                <div class="col-75">
                     <br />
-                    <label>Informe o modelo</label>
-                    <input type="text" name="modelo" /> 
-                    
                     <br />
-                    <label>Informe a marca</label>
-                    <input type="text" name="marca" />
+                    <input type="text" id="infmodelo" name="modelo" placeholder="Digite Modelo" />
+                    <input type="text" id="infmarca" name="marca" placeholder="Digite a Marca" />
+                    <input type="text" id="infpotenciaBtus" name="potenciaBtus" placeholder="Digite a Potencia em Btus" />
+                    <input type="text" id="inflitragem" name="litragem" placeholder="Digite a litragem " />
+                    <input type="text" id="inftensao" name="tensao" placeholder="Digite a tensão" />
+                    <input type="text" id="infaparelho" name="aparelho" placeholder="Digite o tipo de Aparelho" />
+                </div>
+            </div> 
 
-                    <br />
-                    <label>Informe a potenciaBtus</label>
-                    <input type="text" name="potenciaBtus" />
 
-                    <br />
-                    <label>Informe a litragem</label>
-                    <input type="text" name="litragem" />
-                    
-                    <br />
-                    <label>Informe a tensao</label>
-                    <input type="text" name="tensao" />
-                    
-                    
-                    <hr />
-                    <input type="button" value="Salvar" onclick="enviaForm()" />
-                    <input type="reset" value="Cancelar" onclick="enviaForm()" />
-                </div> 
-            </form>
-        </article>
-    </section>
-    <footer>
-        <script src="scripts/rodape.js"></script>
-    </footer>
+            <input type="button" value="Salvar" onclick="enviaForm()" />
+            <input type="reset" value="Cancelar" />
+            <a href="index.jsp" class= "sair">Sair</a>
+
+        </form>
+    </div>
+
+
+
     <script>
-        
-        //Função de cadastro de equipamento
-                        function enviaForm() {
-                          /*  var id = document.getElementsByName("id");//envia para o atributo na posição 0 o valor, cadastrado
-                            if (id[0].value === "") {
-                                id[0].focus();
-                                alert("Informe id");
-                                exit();
-                            }
-                        */
-                            var modelo = document.getElementsByName("modelo");
-                            if (modelo[0].value === "") {
-                                modelo[0].focus();
-                                alert("Informe o modelo");
-                                exit();
-                            }
+        function enviaForm() {              // validação de dados 
+            debugger;
+            var modelo = document.getElementsByName("modelo"); // coletando dados atravez do name
+            if (modelo[0].value === "") {     //se modelo for igual  a vizio   (alert)
+                modelo[0].focus();            // se modelo  for igual a zero   (alert)
+                alert("Informe o modelo");    //alert pedindo para preencher  o campo modelo
+                exit();
+            }
+            var marca = document.getElementsByName("marca");
+            if (marca[0].value === "") {
+                marca[0].focus();
+                alert("Informe a marca");
+                exit();
 
-                            var marca = document.getElementsByName("marca");
-                            if (marca[0].value === "") {
-                                marca[0].focus();
-                                alert("Informe a marca");
-                                exit();
-                            }
+            }
+            var potenciaBtus = document.getElementsByName("potenciaBtus");
+            if (potenciaBtus[0].value === "") {
+                potenciaBtus[0].focus();
+                alert("Informe a potenciaBtus");
+                exit();
+            }
+            var litragem = document.getElementsByName("litragem");
+            if (litragem[0].value === "") {
+                litragem[0].focus();
+                alert("Informe a litragem");
+                exit();
+            }
+            var tensao = document.getElementsByName("tensao");
+            if (tensao[0].value === "") {
+                tensao[0].focus();
+                alert("Informe a tensao");
+                exit();
 
-                            var potenciaBtus = document.getElementsByName("potenciaBtus");
-                            if (potenciaBtus[0].value === "") {
-                                potenciaBtus[0].focus();
-                                alert("Informe a potenciaBtus");
-                                exit();
-                            }
+            }
+            var aparelho = document.getElementsByName("aparelho");
+            if (aparelho[0].value === "") {
+                aparelho[0].focus();
+                alert("Informe o aparelho");
+                exit();
+            }
+            document.forms[0].submit();     //envia dados para endereço registrado no action
+        }
 
-                            var litragem = document.getElementsByName("litragem");
-                            if (litragem[0].value === "") {
-                                litragem[0].focus();
-                                alert("Informe a litragem");
-                                exit();
-                            }
-
-                            var tensao = document.getElementsByName("tensao");
-                            if (tensao[0].value === "") {
-                                tensao[0].focus();
-                                alert("Informe a tensao");
-                                exit();
-                            }
-                            document.forms[0].submit();
-                        }
-    <script/>
+    </script>
 </body>   
 </html>
-

@@ -1,41 +1,26 @@
-/* 
-    Created on : 3 de dez de 2020, 10:46:17
-    Author     : entra21
-*/
-body{
-
-
-
-
-
-
-layout pag inicio
-
-
+body, input, select, textarea, 
 
 button{
-background-color: blue;
-color: white;
+    font-family: verdana;
 }
 
-.error{
-    color: red;
-    font-style: italic;
-}
-
-header{
-    background-color: red;
-    margin: 2px;
-    padding: 2px;
+header {
+    background-color: cornflowerblue;                
+    padding: 5px;
+    margin: 0;
     text-align: center;
-    font-size: 35px;
-    color: red;
+    font-family: verdana;
+    font-size: 10px;
+    color: white;
+}
+body {
+    background-image: linear-gradient(cornflowerblue, lightblue);
+    margin: 0;
 }
 
 footer{
     background-color: silver;
     padding: 10px;
     text-align: center;
-    color: red;
-}
+    color: blue;
 }

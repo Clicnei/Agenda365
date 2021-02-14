@@ -1,10 +1,4 @@
-alter table cliente drop column cpf;
-alter table cliente add column cpf varchar(14) unique null;
-alter table cliente drop column cnpj;
-alter table cliente add column cnpj varchar(18) unique null;
-alter table cliente add column isPessoaFisica boolean not null;
-alter table cliente add primary key (id);
-alter table equipamento add primary key (id);
+
 create table ordemServico(
 id serial,
 clienteId INT,

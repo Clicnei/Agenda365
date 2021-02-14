@@ -1,5 +1,3 @@
-//document.write("<p>Desenvolvido durante as aulas de Java da turma maturitech</p>");
-document.write("<a href='logout.jsp'><button>'SAIR'</button></a> ");
-
+document.write("<p>Projeto Desenvolvido Turma Maturitech 2020/2021</p>");
 
        

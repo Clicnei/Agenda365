@@ -9,8 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+
 import utils.Conexao;
 
 
@@ -21,20 +20,41 @@ import utils.Conexao;
 
 public class Usuario {
 
+    
     private String nome;
-    private String cpf;
-    private String usuario;
     private String senha;
     
     
-
-    public static boolean podeLogar(String pUser, String pSenha) throws Exception{
+public static boolean existeUsuario(String nome) throws Exception {
         Connection con = Conexao.conectar();
-        String sql = "select * from login where usuario = ? and senha = ?";
+        String sql = "select * from usuario where nome = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pUser);
-            stm.setString(2, pSenha);
+            stm.setString(1, nome);
+            
+            ResultSet rs = stm.executeQuery();
+            return rs.next();
+            
+            
+
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return true;
+
+       
+    }
+    
+    
+    
+    
+    public static boolean logar(String nome, String senha) throws Exception{
+        Connection con = Conexao.conectar();
+        String sql = "select * from usuario where nome = ? and senha = ?";
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, nome);
+            stm.setString(2, senha);
             ResultSet rs = stm.executeQuery();
             return rs.next();
 
@@ -44,31 +64,17 @@ public class Usuario {
         return true;
     }
 
-    public boolean userExiste(String pUser) {
-        Connection con = Conexao.conectar();
-        String sql = "select * from login where usuario = ?";
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pUser);
-            ResultSet rs = stm.executeQuery();
-            return rs.next();
-
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return true;
-    }
+   
 
     public boolean salvar() {
-        String sql = "insert into usuario(nome, cpf, usuario, senha)";
-        sql += "values(?,?,?,?)";
+        String sql = "insert into usuario(nome, senha)";
+        sql += "values(?,?)";
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
+            
             stm.setString(1, this.nome);
-            stm.setString(2, this.cpf);
-            stm.setString(5, this.usuario);
-            stm.setString(6, this.senha);
+            stm.setString(2, this.senha);
 
             stm.execute();
         } catch (SQLException ex) {
@@ -80,17 +86,14 @@ public class Usuario {
 
     public boolean alterar() {
         Connection con = Conexao.conectar();
-        String sql = "update usuario set ";
-        sql += "nome = ?,";
-        sql += "cpf = ?,";
-        sql += "usuario = ?";
-        sql += " where senha = ?";
+        String sql = "update usuario set nome = ? where senha = ? ";
+        
+        
         try {
             PreparedStatement stm = con.prepareStatement(sql);
+           
             stm.setString(1, this.nome);
-            stm.setString(2, this.cpf);
-            stm.setString(3, this.usuario);
-            stm.setString(4, this.senha);
+            stm.setString(2, this.senha);
 
             stm.execute();
         } catch (SQLException ex) {
@@ -100,59 +103,16 @@ public class Usuario {
         return true;
     }
 
-    public Usuario consultar(String pCpf) {
-        Connection con = Conexao.conectar();
-        String sql = "select * cpf, nome, usuario, senha"
-                + " from usuario where cpf = ?";
-        Usuario usuario = null;
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pCpf);
-            ResultSet rs = stm.executeQuery();
-            if (rs.next()) {
-               usuario = new Usuario();
-               usuario.setCpf(pCpf);
-               usuario.setNome(rs.getString("nome"));
-               usuario.setUsuario(rs.getString("usuario"));
-               usuario.setSenha(rs.getString("senha"));
-            }
+    
 
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return usuario;
-    }
-
-    public List<Usuario> consultar() {
-        Connection con = Conexao.conectar();
-        String sql = "select * nome, cpf, usuario, senha from usuario";
-        Usuario usuario = null;
-        List<Usuario> lista = new ArrayList<>();
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                usuario = new Usuario();
-                usuario.setNome(rs.getString("nome"));
-                usuario.setCpf(rs.getString("cpf"));
-                usuario.setUsuario(rs.getString("usuario"));
-                usuario.setSenha(rs.getString("senha"));
-                lista.add(usuario);
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return lista;
-    }
 
     public boolean excluir() {
         Connection con = Conexao.conectar();
         String sql = "delete from usuario ";
-        sql += " where cpf = ?";
+        sql += " where nome = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, this.cpf);
+            stm.setString(1, this.nome);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
@@ -169,22 +129,6 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
     public String getSenha() {
         return senha;
     }
@@ -192,4 +136,7 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+   
+
 }

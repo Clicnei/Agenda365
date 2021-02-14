@@ -4,33 +4,40 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
         <title>INDEX</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="styles/estilos.css" type="text/css"/>
+        
         <style>
             img{
                 display: inline;
-                width: 500px;
-                height: 500px;
+                width: 400px;
+                height: 400px;
                 margin-left: 280px;
+                margin-top: 20px;
             }
             
             .img1{
                 display: flex;
-                width: 200px;
-                height: 100px;
+                width: 250px;
+                height: 150px;
                 position: absolute;
-                margin-left: 820px;
-                top: 200px;
+                margin-left: 790px;
+                top: 120px;
             }
             
             div{
                 display: flex;
                 top: 300px;
-                left: 840px;
+                left: 830px;
                 width: 400px;
                 position: absolute;
                 
@@ -56,6 +63,9 @@ and open the template in the editor.
                 padding: 10px;
                 text-align: center;
                 color: blue;
+                position:absolute;
+                bottom:0;
+                width:100%;
             }
             
             input[type=submit] {
@@ -69,12 +79,13 @@ and open the template in the editor.
     </head>
     <body>
         <hr/>
+        
         <img class="imgcentral" src="imagens/Doutor.png" alt="imagem"/>
-        <img class="img1" src="imagens/Logo1.png" alt="imagem"/>
+        <img class="img1" src="imagens/Logo2.png" alt="imagem"/>
         <div>
                 <form action="login.jsp" method="POST">
-                <label>Usuário</label><br/>
-                <input type="text" name="usuario" /> <br/>
+                <label>Usuario</label><br/>
+                <input type="text" name="login" /> <br/>
                 <label>Senha</label><br/>
                 <input type="password" name="senha" /> <br/> <br/>
                 <input type="submit" value="ENTRAR" />
@@ -84,6 +95,3 @@ and open the template in the editor.
         </footer>
     </body>
 </html>
-
-
-

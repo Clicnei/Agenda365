@@ -3,19 +3,53 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/imagens/images3.jpg</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/login.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastro.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/editaragendamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastraordemservico.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/editarordemservico.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/consultaordemservico.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeEditaCliente.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/inutlizada.html</file>
             <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeDadosCliente.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/styles/estilos.css</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeDadosEquipamento.jsp</file>
             <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/scripts/rodape.js</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/consultausuario.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/excluircliente.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/index.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/editarcliente.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/agendamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/logout.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/utils/Conexao.java</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/modelos/Usuario.java</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeDadosUsuario.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastroagendamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/excluirequipamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/agenda.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/calendario.html</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/imagens/FotoAgenda.png</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/excluiragendamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/consultaagendamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/scripts/testecalendar.js</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/styles/estilos.css</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastroequipamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/login_inutilizada.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/modelos/Agendamento.java</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/scripts/cabecalho.js</file>
             <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/inicio.jsp</file>
             <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastracliente.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/imagens/Doutor.png</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/index.html</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeeditaequipamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeDadosAgendamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeDadosOrdemServico.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/informacao.html</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/modelos/Equipamento.java</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/recebeeditaagendamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/cadastrausuario.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/editarequipamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/consultaequipamento.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/consulta.jsp</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/modelos/OrdemServico.java</file>
             <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/scripts/menu.js</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/logout.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/agenda.jsp</file>
-            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/web/imagens/FotoAgenda.png</file>
+            <file>file:/C:/Users/A/Documents/NetBeansProjects/Agenda365/src/java/modelos/Cliente.java</file>
         </group>
     </open-files>
 </project-private>

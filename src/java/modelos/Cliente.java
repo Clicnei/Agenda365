@@ -11,7 +11,7 @@ import utils.Conexao;
 public class Cliente {
     // mo exemplo não coloca Id //
     // private Integer id;
-
+    private Integer id;
     private String nome;
     private String cpf;
     private String cnpj;
@@ -22,17 +22,16 @@ public class Cliente {
     private String cep;
     private String cidade;
     private String estado;
-    private String telefoneFixo;
-    private String telefoneCelular;
+    private String telefone;
     private String email;
     private boolean isPessoaFisica;
 
     //no exemplo não usa Id// tratamento excessão conectar
     public boolean salvar() throws SQLException {
         String sql = "insert into cliente(nome, cpf, cnpj, rua, numero, "
-                + "complemento, bairro, cep, cidade, estado, telefonefixo, "
-                + "telefonecelular, email, isPessoaFisica )";
-        sql += "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "complemento, bairro, cep, cidade, estado, telefone, "
+                + "email, isPessoaFisica )";
+        sql += "values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         //Connection con = Conexao.conectar();
         Connection con = Conexao.conectar();
         try {
@@ -48,10 +47,9 @@ public class Cliente {
             stm.setString(8, this.cep);
             stm.setString(9, this.cidade);
             stm.setString(10, this.estado);
-            stm.setString(11, this.telefoneFixo);
-            stm.setString(12, this.telefoneCelular);
-            stm.setString(13, this.email);
-            stm.setBoolean(14, this.isPessoaFisica);
+            stm.setString(11, this.telefone);           
+            stm.setString(12, this.email);
+            stm.setBoolean(13, this.isPessoaFisica);
 
             stm.execute();
         } catch (SQLException ex) {
@@ -62,23 +60,22 @@ public class Cliente {
     }
     //tratamento excessão conectar
 
-    public boolean alterar() throws SQLException {
+    public boolean alterar() throws SQLException, Exception {
         Connection con = Conexao.conectar();
         String sql = "update cliente set ";
         sql += "nome = ?,";
         sql += "cpf = ?,";
-        sql += "cnpj = ?";
-        sql += "rua = ?";
-        sql += "numero = ?";
-        sql += "complemento = ?";
-        sql += "bairro = ?";
-        sql += "cep = ?";
-        sql += "cidade = ?";
-        sql += "estado = ?";
-        sql += "telefoneFixo = ?";
-        sql += "telefoneCelular = ?";
+        sql += "cnpj = ?,";
+        sql += "rua = ?,";
+        sql += "numero = ?,";
+        sql += "complemento = ?,";
+        sql += "bairro = ?,";
+        sql += "cep = ?,";
+        sql += "cidade = ?,";
+        sql += "estado = ?,";
+        sql += "telefone = ?,";        
         sql += "email = ?";
-        sql += " where cpf = ?";
+        sql += " where id = ?";
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             stm.setString(1, this.nome);
@@ -90,91 +87,22 @@ public class Cliente {
             stm.setString(7, this.bairro);
             stm.setString(8, this.cep);
             stm.setString(9, this.cidade);
-            stm.setString(13, this.estado);
-            stm.setString(10, this.telefoneFixo);
-            stm.setString(11, this.telefoneCelular);
+            stm.setString(10, this.estado);
+            stm.setString(11, this.telefone);           
             stm.setString(12, this.email);
+            stm.setInt(13, this.id);
 
             stm.execute();
         } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-            return false;
+           // System.out.println("Erro: " + ex.getMessage());
+            throw new Exception("erro " + ex.getMessage());
+           // return false;
         }
         return true;
     }
     //realizado tratamento excessão por throws//
 
-    public Cliente consultar(String pCpf) throws SQLException {
-        Connection con = Conexao.conectar();
-        String sql = "select * nome, cpf, cnpj, rua, numero, complemento, "
-                + "bairro, cep, cidade, estado,telefoneFixo, telefoneCelular, email"
-                + " from cliente where cpf = ?";
-        Cliente cliente = null;
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1, pCpf);
-            ResultSet rs = stm.executeQuery();
-            if (rs.next()) {
-                cliente = new Cliente();
-                cliente.setCpf(pCpf);
-                cliente.setNome(rs.getString("nome"));
-                //cliente.setCpf(rs.getString("cpf"));
-                cliente.setCnpj(rs.getString("cnpj"));
-                cliente.setRua(rs.getString("rua"));
-                cliente.setNumero(rs.getString("numero"));
-                cliente.setComplemento(rs.getString("complemento"));
-                cliente.setBairro(rs.getString("bairro"));
-                cliente.setCep(rs.getString("cep"));
-                cliente.setCidade(rs.getString("cidade"));
-                cliente.setEstado(rs.getString("estado"));
-                cliente.setTelefoneFixo(rs.getString("telefoneFixo"));
-                cliente.setTelefoneCelular(rs.getString("telefoneCelular"));
-                cliente.setEmail(rs.getString("email"));
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return cliente;
-    }
-    //consultar por Id ???? // tratamenmto excessão conectar
-
-    public List<Cliente> consultar() throws SQLException {
-        Connection con = Conexao.conectar();
-        String sql = "select * nome, cpf, cnpj, rua, numero, complemento"
-                + "bairro, cep, cidade, estado, email from cliente";
-        Cliente cliente = null;
-        List<Cliente> lista = new ArrayList<>();
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                cliente = new Cliente();
-                //cliente.setId(rs.getString("id"));
-                cliente.setNome(rs.getString("nome"));
-                cliente.setCpf(rs.getString("cpf"));
-                cliente.setCnpj(rs.getString("cnpj"));
-                cliente.setRua(rs.getString("rua"));
-                cliente.setNumero(rs.getString("numero"));
-                cliente.setComplemento(rs.getString("complemento"));
-                cliente.setBairro(rs.getString("bairro"));
-                cliente.setCep(rs.getString("cep"));
-                cliente.setCidade(rs.getString("cidade"));
-                cliente.setEstado(rs.getString("estado"));
-                cliente.setTelefoneFixo(rs.getString("telefoneFixo"));
-                cliente.setTelefoneCelular(rs.getString("telefoneCelular"));
-                cliente.setEmail(rs.getString("email"));
-
-                lista.add(cliente);
-            }
-
-        } catch (SQLException ex) {
-            System.out.println("Erro: " + ex.getMessage());
-        }
-        return lista;
-    }
-    //tratamento excessão
-
+    
     public boolean excluir() throws SQLException {
         Connection con = Conexao.conectar();
         String sql = "delete from cliente ";
@@ -188,6 +116,105 @@ public class Cliente {
             return false;
         }
         return true;
+    }
+    
+    //consultar por Id ???? // tratamenmto excessão conectar
+
+    public List<Cliente> consultar() throws SQLException {
+        Connection con = Conexao.conectar();
+        String sql = "select  * from cliente";        
+        List<Cliente> lista = new ArrayList<>();
+        
+        
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);           
+            ResultSet rs = stm.executeQuery();
+            while (rs.next()) {
+                Cliente cliente = new Cliente();
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setCnpj(rs.getString("cnpj"));
+                cliente.setRua(rs.getString("rua"));
+                cliente.setNumero(rs.getString("numero"));
+                cliente.setComplemento(rs.getString("complemento"));
+                cliente.setBairro(rs.getString("bairro"));
+                cliente.setCep(rs.getString("cep"));
+                cliente.setCidade(rs.getString("cidade"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setTelefone(rs.getString("telefone"));                
+                cliente.setEmail(rs.getString("email"));
+
+                lista.add(cliente);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return lista;
+    }
+     public Cliente consultar(String pCpf) throws SQLException {
+        Connection con = Conexao.conectar();
+        String sql = "select * from cliente where cpf = ?";
+        Cliente cliente = null;
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, pCpf);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setCpf(pCpf);
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setCnpj(rs.getString("cnpj"));
+                cliente.setRua(rs.getString("rua"));
+                cliente.setNumero(rs.getString("numero"));
+                cliente.setComplemento(rs.getString("complemento"));
+                cliente.setBairro(rs.getString("bairro"));
+                cliente.setCep(rs.getString("cep"));
+                cliente.setCidade(rs.getString("cidade"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setTelefone(rs.getString("telefone"));                
+                cliente.setEmail(rs.getString("email"));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return cliente;
+    }
+     
+     public Cliente consulta(String pCnpj) throws SQLException {
+        Connection con = Conexao.conectar();
+        String sql = "select * from cliente where cnpj = ?";
+        Cliente cliente = null;
+        try {
+            PreparedStatement stm = con.prepareStatement(sql);
+            stm.setString(1, pCnpj);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                cliente = new Cliente();
+                cliente.setCnpj(pCnpj);
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setCpf(rs.getString("cpf"));
+                cliente.setCnpj(rs.getString("cnpj"));
+                cliente.setRua(rs.getString("rua"));
+                cliente.setNumero(rs.getString("numero"));
+                cliente.setComplemento(rs.getString("complemento"));
+                cliente.setBairro(rs.getString("bairro"));
+                cliente.setCep(rs.getString("cep"));
+                cliente.setCidade(rs.getString("cidade"));
+                cliente.setEstado(rs.getString("estado"));
+                cliente.setTelefone(rs.getString("telefone"));                
+                cliente.setEmail(rs.getString("email"));
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("Erro: " + ex.getMessage());
+        }
+        return cliente;
     }
 
     public String getNome() {
@@ -270,20 +297,12 @@ public class Cliente {
         this.estado = estado;
     }
 
-    public String getTelefoneFixo() {
-        return telefoneFixo;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setTelefoneFixo(String telefoneFixo) {
-        this.telefoneFixo = telefoneFixo;
-    }
-
-    public String getTelefoneCelular() {
-        return telefoneCelular;
-    }
-
-    public void setTelefoneCelular(String telefoneCelular) {
-        this.telefoneCelular = telefoneCelular;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public String getEmail() {
@@ -301,5 +320,13 @@ public class Cliente {
     public void setIsPessoaFisica(boolean isPessoaFisica) {
         this.isPessoaFisica = isPessoaFisica;
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
 }
-   

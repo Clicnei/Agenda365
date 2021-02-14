@@ -2,8 +2,8 @@ create table "public".cliente
 (
 	id serial not null primary key,
 	nome VARCHAR(50) not null,
-	cpf VARCHAR(14) unique null,
-	cnpj VARCHAR(18) unique null,
+	cpf VARCHAR(14)  null,
+	cnpj VARCHAR(18) null,
 	rua VARCHAR(100),
 	numero VARCHAR(9),
 	complemento VARCHAR(50),

@@ -1,234 +1,229 @@
-<%-- 
-    Document   : cadastracliente
-    Created on : 9 de nov de 2020, 10:28:34
-    Author     : entra21
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro cliente</title>
-        <link href="styles/estilos.css" type="text/css"/>
-        <style>
+        <title>CADASTROCLIENTE</title>
+        <link rel="stylesheet" href="styles/estilos.css">
 
-            input.button{
-                width: 10px;
-            }
-            img{
+        <style> 
+
+            a{
+                background-color: #4682B4;
+                color: white;
                 display: block;
-                position: relative;
-                margin-left: auto;
-                margin-right: auto;
-                width: 500px;
-                height: 300px;
-            }
-            hr{
-                margin: 30px;
-                height: 10px;
-                background-color: cornflowerblue;
+                text-decoration: none;
+                padding: 10px;
+                border-radius: 10px;
+                font-weight: bolder;
+                margin-top: 50px;
+                width: 150px;
+                text-align: center;
+                margin-left: 20px;
+            }   
+
+            a:hover{
+                background-color: #5F9EA0;
             }
 
+            a.active {
+                background-color: #4169E1;
+                cursor:no-drop;
+            }
+            
+            .sair{
+                display: inline;
+                margin-left: 550px;
+            }
+            
+            .menu{
+                clear: none;
+                float: left;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            input[type=text], select, textarea {
+                width: 100%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                resize: vertical;
+                left: 50px;
+            }
+
+            input[type=button] {
+                background-color: #4682B4;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                font-weight: bolder;
+                cursor: pointer;
+                float: start;
+                text-align: center;
+                width: 150px;
+            }
+
+            input[type=button]:hover {
+                background-color: #5F9EA0;
+            }
+
+            input[type=reset] {
+                background-color: #4682B4;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 10px;
+                font-weight: bolder;
+                cursor: pointer;
+                float: start;
+                text-align: center;
+                width: 150px;
+            }
+
+            input[type=reset]:hover {
+                background-color: #5F9EA0;
+            }*
+
+            .container {
+                border-radius: 5px;
+                padding: 10px;
+                margin-left: 400px;
+                margin-top: 0;
+            }
+
+            .col-25 {
+                float: left;
+                width: 15%;
+                margin-top: 6px;
+            }
+
+            .col-75 {
+                float: left;
+                width: 60%;
+                margin-top: 6px;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+                .col-25, .col-75, input[type=submit] {
+                    width: 100%;
+                    margin-top: 0;
+                }
+            }
         </style>
     </head>
     <body>
         <header>
+            <h2>CADASTRO CLIENTE</h2>
+        </header>
+        <div class="menu"> 
+            <a href="cadastracliente.jsp" class="active">Cliente</a>
+            <a href="cadastroequipamento.jsp">Equipamento</a>
+            <a href="cadastraordemservico.jsp">Notificações</a>
+        </div>
 
-            <h1>Cadastro de Clientes</h1>
+        <div class='container'>
+            <form action="recebeDadosCliente.jsp" method="POST">
+                <label for="PessoaFisica">Pessoa Fisica</label>
+                <input type="radio" name="isPessoaFisica" id="isPessoaFisica" onclick="changePessoaFisica()"/>
+                <label for="PessoaJuridica">Pessoa Juridica</label>
+                <input type="radio" name="PessoaJuridica" id="pessoaJuridica" onclick="changePessoaJuridica()"/>
+                <br />
 
-            <section>
-                <nav>
-                    <%-- <script src="scripts/menu.js"></script>--%>
-                </nav>
-
-
-                <form action="recebeDadosCliente.jsp" method"=POST">
-                    <div>
-                        <label for="PessoaFisica">Pessoa Fisica</label>
-                        <input type="radio" name="isPessoaFisica" id="isPessoaFisica" onclick="changePessoaFisica()"/>
-                        <label for="PessoaJuridica">Pessoa Juridica</label>
-                        <input type="radio"name="PessoaJuridica" id="pessoaJuridica" onclick="changePessoaJuridica()"/>
-                        <br /><!-- comment -->
-
-                        <label>Informe o nome</label>
-                        <input type="text" name="nome" /> 
-
-                        <br />
-                        <div id="divCpf">
-                            <label>Informe o cpf</label>
-                            <input type="text" name="cpf" />
-                            <br />
-                        </div>
-
-                        <div id="divCnpj">
-                            <label>Informe o cnpj</label>
-                            <input type="text" name="cnpj" />
-                            <br />
-                        </div>
-
-                        <br />
-                        <label>Informe a rua</label>
-                        <input type="text" name="rua" />
-
-                        <br />
-                        <label>Informe o numero</label>
-                        <input type="text" name="numero" />
-
-                        <br />
-                        <label>Informe o complemento</label>
-                        <input type="text" name="complemento" />
-
-                        <br />
-                        <label>Informe o bairro</label>
-                        <input type="text" name="bairro" />
-
-                        <br />
-                        <label>Informe o cep</label>
-                        <input type="text" name="cep" />
-
-                        <br />
-                        <label>Informe a cidade</label>
-                        <input type="text" name="cidade" />
-
-                        <br />
-                        <label>Informe o estado</label>
-                        <input type="text" name="estado" />
-
-                        <br />
-                        <label>Informe o telefoneFixo</label>
-                        <input type="text" name="telefoneFixo" />
-
-
-                        <br />
-                        <label>Informe o telefoneCelular</label>
-                        <input type="text" name="telefoneCelular" />
-
-
-                        <br />
-                        <label>Informe o email</label>
-                        <input type="text" name="email" />
-
-                        <hr />
-
-                        <input class="button" type="button" value="Salvar" onclick="enviaForm()" />
-                        <input class="button" type="reset" value="Cancelar" onclick="enviaForm()" />
+                <div class="row">
+                    <div class="col-75">
+                        <input type="text" id="infnome" name="nome" placeholder="Digite Nome" />
+                        <input type="text" id="divCpf" name="cpf" placeholder="Digite CPF" />
+                        <input type="text" id="divCnpj" name="cnpj" placeholder="Digite o CNPJ" />
+                        <input type="text" id="infrua" name="rua" placeholder="Digite a Rua" />
+                        <input type="text" id="infnumero" name="numero" placeholder="Digite o Numero" />
+                        <input type="text" id="infcomplemento" name="complemento" placeholder="Digite o Complemento" />
+                        <input type="text" id="infbairro" name="bairro" placeholder="Digite o Bairro" />
+                        <input type="text" id="infcel" name="cep" placeholder="Digite o Cep" />
+                        <input type="text" id="infcidade" name="cidade" placeholder="Digite a Cidade" />
+                        <input type="text" id="infestado" name="estado" placeholder="Digite o Estado" />
+                        <input type="text" id="infixo" name="telefone" placeholder="Digite o Telefone" />                       
+                        <input type="text" id="infemail" name="email" placeholder="Digite o email" />
                     </div>
+                </div>
 
-                </form>
-                </article>
-            </section>
-            <footer>
-                <%--<script src="scripts/rodape.js"></script>--%>
+               <br />
+               
 
-            </footer>
+                <input type="button" value="Salvar" onclick="enviaForm()" />
+                <input type="reset" value="Cancelar" onclick="enviaForm()" />
+                <a href="index.jsp" class= "sair">Sair</a>
+            </form>
+        </div>
 
+        <script>
+            function changePessoaFisica() {
+                document.getElementById("isPessoaFisica").checked = true;
+                document.getElementById("pessoaJuridica").checked = false;
+                document.getElementById("divCpf").hidden = false;
+                document.getElementById("divCnpj").hidden = true;
+            }
 
+            function changePessoaJuridica() {
+                document.getElementById("isPessoaFisica").checked = false;
+                document.getElementById("pessoaJuridica").checked = true;
+                document.getElementById("divCpf").hidden = true;
+                document.getElementById("divCnpj").hidden = false;
+            }
 
-            <script>
-                function changePessoaFisica() {
-                    document.getElementById("isPessoaFisica").checked = true;
-                    document.getElementById("pessoaJuridica").checked = false;
-                    document.getElementById("divCpf").hidden = false;
-                    document.getElementById("divCnpj").hidden = true;
+            function enviaForm() {
+               
+
+                var nome = document.getElementsByName("nome");
+                if (nome[0].value === "") {
+                    nome[0].focus();
+                    alert("Informe o nome");
+                    exit();
                 }
 
-                function changePessoaJuridica() {
-                    document.getElementById("isPessoaFisica").checked = false;
-                    document.getElementById("pessoaJuridica").checked = true;
-                    document.getElementById("divCpf").hidden = true;
-                    document.getElementById("divCnpj").hidden = false;
+
+                var rua = document.getElementsByName("rua");
+                if (rua[0].value === "") {
+                    rua[0].focus();
+                    alert("Informe a rua");
+                    exit();
                 }
 
-                function enviaForm() {
-                    /*var id = document.getElementsByName("id");
-                     if (id[0].value === "") {
-                     id[0].focus();
-                     alert("Informe id");
-                     exit();
-                     }*/
+                var numero = document.getElementsByName("numero");
+                if (numero[0].value === "") {
+                    numero[0].focus();
+                    alert("Informe o numero");
+                    exit();
+                }
 
-                     debugger;
-                    var nome = document.getElementsByName("nome");
-                    if (nome[0].value === "") {
-                        nome[0].focus();
-                        alert("Informe o nome");
-                        exit();
-                    }
 
-                   
-                    var rua = document.getElementsByName("rua");
-                    if (rua[0].value === "") {
-                        rua[0].focus();
-                        alert("Informe a rua");
-                        exit();
-                    }
+                var bairro = document.getElementsByName("bairro");
+                if (bairro[0].value === "") {
+                    bairro[0].focus();
+                    alert("Informe o bairro");
+                    exit();
+                }
 
-                    var numero = document.getElementsByName("numero");
-                    if (numero[0].value === "") {
-                        numero[0].focus();
-                        alert("Informe o numero");
-                        exit();
-                    }
+                var telefone = document.getElementsByName("telefone");
+                if (telefone[0].value === "") {
+                    telefone[0].focus();
+                    alert("Informe o telefone");
+                    exit();
+                }
 
-                    var complemento = document.getElementsByName("complemento");
-                    if (complemento[0].value === "") {
-                        complemento[0].focus();
-                        alert("Informe o complemento");
-                        exit();
-                    }
-
-                    var bairro = document.getElementsByName("bairro");
-                    if (bairro[0].value === "") {
-                        bairro[0].focus();
-                        alert("Informe o bairro");
-                        exit();
-                    }
-
-                    var cep = document.getElementsByName("cep");
-                    if (cep[0].value === "") {
-                        cep[0].focus();
-                        alert("Informe o cep");
-                        exit();
-                    }
-
-                    var cidade = document.getElementsByName("cidade");
-                    if (cidade[0].value === "") {
-                        cidade[0].focus();
-                        alert("Informe a cidade");
-                        exit();
-                    }
-
-                    var estado = document.getElementsByName("estado");
-                    if (estado[0].value === "") {
-                        estado[0].focus();
-                        alert("Informe o estado");
-                        exit();
-                    }
-
-                    var telefoneFixo = document.getElementsByName("telefoneFixo");
-                    if (telefoneFixo[0].value === "") {
-                        telefoneFixo[0].focus();
-                        alert("Informe o telefone Fixo");
-                        exit();
-                    }
-
-                    var telefoneCelular = document.getElementsByName("telefoneCelular");
-                    if (telefoneCelular[0].value === "") {
-                        telefoneCelular[0].focus();
-                        alert("Informe o telefone Celular");
-                        exit();
-
-                    }
-                        var email = document.getElementsByName("email");
-                        if (email[0].value === "") {
-                            email[0].focus();
-                            alert("Informe o email");
-                            exit();
-                        }
-
-                        document.forms[0].submit();
-                    }
-            </script>
+                document.forms[0].submit();
+            }
+        </script>
     </body>   
 </html>

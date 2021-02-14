@@ -16,10 +16,12 @@ public class Equipamento {
     private String potenciaBtus;
     private String litragem;
     private String tensao;
+    private String aparelho;
 
     public boolean salvar() {
-        String sql = "insert into equipamento(modelo, marca, potenciabtus, "
-                + "litragem, tensao) values(?, ?, ?, ?, ?)";
+        String sql = "insert into equipamento(modelo, marca, potenciaBtus, ";
+        sql += "litragem, tensao,aparelho)";
+        sql += "values(?,?,?,?,?,?)";
         Connection con = Conexao.conectar();
         try {
             PreparedStatement stm = con.prepareStatement(sql);
@@ -28,25 +30,36 @@ public class Equipamento {
             stm.setString(3, this.potenciaBtus);
             stm.setString(4, this.litragem);
             stm.setString(5, this.tensao);
-            return stm.execute();
+            stm.setString(6, this.aparelho);
+
+            stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
             return false;
         }
+        return true;
     }
 
-    public boolean alterar() {
-        Connection con = Conexao.conectar();
-        String sql = "insert into equipamento (id,modelo,marca,potenciaBtus,litragem,tensao)";
-        sql += "values(?,?,?,?,?,?)";
-        try {
+    
+        
+    public boolean alterar(){
+       Connection con = Conexao.conectar();
+       String sql = "update equipamento set ";
+              sql +="modelo = ?,";
+              sql +="marca = ?,";
+              sql +="potenciaBtus = ?,";
+              sql +="litragem = ?,";
+              sql +="tensao = ?,";
+              sql +="aparelho = ? ";
+              sql +=" where id = ?";try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1, this.id);
-            stm.setString(2, this.modelo);
-            stm.setString(3, this.marca);
-            stm.setString(4, this.potenciaBtus);
-            stm.setString(5, this.litragem);
-            stm.setString(6, this.tensao);
+            stm.setString(1, this.modelo);
+            stm.setString(2, this.marca);
+            stm.setString(3, this.potenciaBtus);
+            stm.setString(4, this.litragem);
+            stm.setString(5, this.tensao);
+            stm.setString(6, this.aparelho);
+            stm.setInt(7, this.id);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
@@ -58,11 +71,11 @@ public class Equipamento {
     public boolean excluir() {
         Connection con = Conexao.conectar();
         String sql = "delete from equipamento";
-        sql += "where id =?";
-       
+        sql += " where id =?";
+
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1,this.id);
+            stm.setInt(1, this.id);
             stm.execute();
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
@@ -70,49 +83,28 @@ public class Equipamento {
         }
         return true;
     }
-     public Equipamento consultar(int id) {
-        Connection con = Conexao.conectar();
-        String sql = "select id,modelo,marca,potenciaBtus,litragem,tensao from equipamento ";
-        Equipamento equipamento = null;
+
+    public Equipamento consultar(Integer id) {
         
-        try {
-            PreparedStatement stm = con.prepareStatement(sql);
-            stm.setInt(1,id);
-            ResultSet rs = stm.executeQuery();
-            if(rs.next()){
-                equipamento = new Equipamento();
-            equipamento.setId(rs.getInt("id"));
-            equipamento.setModelo(rs.getString("modelo"));
-            equipamento.setMarca(rs.getString("marca"));
-            equipamento.setPotenciaBtus(rs.getString("potenciaBtuus"));
-            equipamento.setLitragem(rs.getString("litragem"));
-            equipamento.setTensao(rs.getString("tensao"));                     
-            }
-            
-        } catch (SQLException ex) {
-            System.out.println("Erro:" + ex.getMessage());
-
-        }
-        return equipamento;
-    }
-      public Equipamento consultar(String pModelo) {
         Connection con = Conexao.conectar();
-        String sql = "select id,modelo,marca,potenciaBtus,litragem,tensao from equipamento ";
-        Equipamento equipamento = null;        
+        String sql = "select id, modelo, marca, potenciabtus, litragem, tensao, aparelho from equipamento where id =?";
+        Equipamento equipamento = null;
+
         try {
             PreparedStatement stm = con.prepareStatement(sql);
-            stm.setString(1,pModelo);
+            stm.setInt(1, id);
             ResultSet rs = stm.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 equipamento = new Equipamento();
-            equipamento.setId(rs.getInt("id"));
-            equipamento.setModelo(rs.getString("modelo"));
-            equipamento.setMarca(rs.getString("marca"));
-            equipamento.setPotenciaBtus(rs.getString("potenciaBtuus"));
-            equipamento.setLitragem(rs.getString("litragem"));
-            equipamento.setTensao(rs.getString("tensao"));                     
+                equipamento.setId(rs.getInt("id"));
+                equipamento.setModelo(rs.getString("modelo"));
+                equipamento.setMarca(rs.getString("marca"));
+                equipamento.setPotenciaBtus(rs.getString("potenciabtus"));
+                equipamento.setLitragem(rs.getString("litragem"));
+                equipamento.setAparelho(rs.getString("aparelho"));
+                equipamento.setTensao(rs.getString("tensao"));                
             }
-            
+
         } catch (SQLException ex) {
             System.out.println("Erro:" + ex.getMessage());
 
@@ -120,6 +112,7 @@ public class Equipamento {
         return equipamento;
     }
 
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -129,25 +122,30 @@ public class Equipamento {
         sb.append(", potenciaBtus=").append(potenciaBtus);
         sb.append(", litragem=").append(litragem);
         sb.append(", tensao=").append(tensao);
+        sb.append(", aparelho=").append(aparelho);
         sb.append('}');
         return sb.toString();
     }
-    
-     public List<Equipamento> consultar() {
-        List<Equipamento> lista = new ArrayList<>();
+
+    public static List<Equipamento> consultar() {
+
         Connection con = Conexao.conectar();
-        String sql = "select id, modelo, marca, potenciabtus, litragem, tensao" + "from equipamento";
+        String sql = "select * from equipamento";
+        List<Equipamento> lista = new ArrayList<>();
+
         try {
             PreparedStatement stm = con.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
 
             while (rs.next()) {
                 Equipamento equipamento = new Equipamento();
-                equipamento.setMarca(rs.getString("modelo"));
-                equipamento.setModelo(rs.getString("marca"));
-                equipamento.setMarca(rs.getString("potencaibtus"));
-                equipamento.setModelo(rs.getString("litragem"));
-                equipamento.setMarca(rs.getString("tensao"));
+                equipamento.setId(rs.getInt("id"));
+                equipamento.setModelo(rs.getString("modelo"));
+                equipamento.setMarca(rs.getString("marca"));
+                equipamento.setPotenciaBtus(rs.getString("potenciaBtus"));
+                equipamento.setLitragem(rs.getString("litragem"));
+                equipamento.setTensao(rs.getString("tensao"));
+                equipamento.setAparelho(rs.getString("aparelho"));
 
                 lista.add(equipamento);
             }
@@ -155,14 +153,11 @@ public class Equipamento {
         } catch (SQLException ex) {
             System.out.println("Erro: " + ex.getMessage());
         }
+
+        System.out.println(lista);
+
         return lista;
     }
-      
-
-    public Equipamento() {
-    }
-
-   
 
     public Integer getId() {
         return id;
@@ -210,6 +205,14 @@ public class Equipamento {
 
     public void setTensao(String tensao) {
         this.tensao = tensao;
+    }
+
+    public String getAparelho() {
+        return aparelho;
+    }
+
+    public void setAparelho(String aparelho) {
+        this.aparelho = aparelho;
     }
 
 }

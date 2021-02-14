@@ -25,7 +25,7 @@
                 cursor: pointer;
             }
 
-            .imgcentral:hover{
+            .imgcentral:hover{ 
                 -webkit-transform: scale(1.5);
                 transform: scale(1.5);
             }
@@ -52,32 +52,44 @@
         </style>
     </head>
     <body>
+        <div></div>
         <hr/>
+        
+        <img class="imgcentral" src="imagens/Doutor.png" alt="imagem"/>
+        <img class="img1" src="imagens/Logo2.png" alt="imagem"/>
         <div>
-            <h1></h1>
-            <form action="login.jsp" method="POST">
-                <label>Usuário</label><br/>
-                <input typ="text" name="usuario" /> <br/>
+                <form action="login.jsp" method="POST">
+                <label>Usuario</label><br/>
+                <input type="text" name="login" /> <br/>
                 <label>Senha</label><br/>
                 <input type="password" name="senha" /> <br/> <br/>
-                <input type="submit" value="Logar" />  
-                <a href="cadastracliente.jsp"><input type="button" value="cadastrar"/></a>
-            </form>  
-        </div>   
-        <%
-          String usuario = request.getParameter("usuario");
+                <%
+          String nome = request.getParameter("nome");
           String senha = request.getParameter("senha");
           
-          if((usuario != null) && (senha != null) && !(usuario.isEmpty())
+          if((nome != null) && (senha != null) && !(nome.isEmpty())
                   && !(senha.isEmpty()) ){
             //crie a seção 
-           
-            if(Usuario.podeLogar(usuario,senha)){
-            session.setAttribute("usuario", usuario);
+           if (!Usuario.existeUsuario(nome))
+              out.write("Usuario precisa se cadastrar");
+          // if(Usuario.podeLogar(usuario,senha))
+         
+          
+          if(Usuario.logar(nome, senha))
+          {
+            session.setAttribute("login", nome);
             response.sendRedirect("inicio.jsp");  
-          }      
+          }  else
+           {
+               out.write("Usuario e senha inválidos");
+           }
             }
         %>
-        <hr/>
+                <input type="submit" value="ENTRAR" />
+                
+        </div>
+        <footer>
+            <script src="scripts/rodape.js"></script>
+        </footer>
     </body>
 </html>
